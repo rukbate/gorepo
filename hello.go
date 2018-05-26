@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+
 func main() {
 	monthdays := map[string]int{
 		"Jan": 31, "Feb": 28, "Mar": 31,
