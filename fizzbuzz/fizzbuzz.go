@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main2() {
 	for i := 1; i <= 100; i++ {
 		if i % 15 == 0 {
 			fmt.Printf("%s\n", "FizzBuzz")
