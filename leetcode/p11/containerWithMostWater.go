@@ -3,28 +3,21 @@ package main
 import "fmt"
 
 func maxArea(height []int) int {
-	maxH := 0
 	maxA := 0
-	for i := 0; i < len(height); i++ {
-		if height[i] > maxH {
-			maxH = height[i]
-		}
-	}
-	
-	for step := len(height) - 1; step > 0; step-- {
-		if step >= maxA / maxH {
-			for i := 0; i + step < len(height); i++ {
-				var ca int
-				if height[i] > height[i + step] {
-					ca = step * height[i + step]
-				} else {
-					ca = step * height[i]
-				}
+	i, j := 0, len(height) - 1
 
-				if ca > maxA {
-					maxA = ca
-				}
-			}
+	for i < j {
+		ca := 0
+		if height[i] < height[j] {
+			ca = height[i] * (j - i)
+			i++
+		} else {
+			ca = height[j] * (j - i)
+			j--
+		}
+
+		if ca > maxA {
+			maxA = ca
 		}
 	}
 
@@ -32,7 +25,7 @@ func maxArea(height []int) int {
 }
 
 func main() {
-	arr := []int {1,8, 9}
+	arr := []int {1,8,6,2,5,4,8,3,7}
 
 	fmt.Println(maxArea(arr))
 }
